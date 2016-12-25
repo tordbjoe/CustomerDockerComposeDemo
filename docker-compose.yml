@@ -13,6 +13,7 @@ services:
     build: .
     build:
       context: ${PATH_TO_CUSTOMERFRONTEND}
+    container_name: customer-frontend
     image: customerfrontend
     depends_on:
       - customer-rest-api
