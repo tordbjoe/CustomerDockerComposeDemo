@@ -1,0 +1,20 @@
+version: '2'
+services:
+  customer-rest-api:
+    build: .
+    build:
+      context: ${PATH_TO_CUSTOMERBACKEND}
+    container_name: customer-rest-api
+    image: customerbackend
+    expose:
+      - "8080"
+
+  customer-frontend:
+    build: .
+    build:
+      context: ${PATH_TO_CUSTOMERFRONTEND}
+    image: customerfrontend
+    depends_on:
+      - customer-rest-api
+    ports:
+      - "80:80"
